@@ -1,0 +1,420 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
+
+* {
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+  color-adjust: exact !important; /* Firefox 48 – 96 */
+  print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("./fonts/MonaSans[wdth,wght].ttf");
+  font-weight: 200 700;
+  font-stretch: 35% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("./fonts/MonaSans-Italic[wdth,wght].ttf");
+  font-weight: 200 700;
+  font-stretch: 35% 100%;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --cover-page-ml: 2.5cm;
+  --page-mx: 1cm;
+  --page-m-edge: 2.1cm;
+  --page-t: 4cm;
+  
+  --font-weight-light: 300;
+  --font-weight-bold: 600;
+}
+
+@page {
+  margin: var(--page-t) var(--page-mx) 1.5cm;
+  size: a4;
+  counter-increment: page;
+
+  @bottom-center {
+    content: string(subsection);
+    font-family: "Mona Sans", sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-bold);
+    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    vertical-align: top;
+    padding-top: 0.3cm;
+    padding-left: 1cm;
+    padding-right: 1cm;
+  }
+}
+
+@page :first {
+  margin: 0 0 1.5cm;
+
+  @bottom-right {
+    content: none;
+  }
+}
+
+@page :left {
+  margin-right: var(--page-m-edge);
+
+  @bottom-left {
+    content: counter(page);
+    font-family: "Mona Sans", sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-bold);
+    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    vertical-align: top;
+    padding-top: 0.3cm;
+  }
+
+  @bottom-center {
+    text-align: left;
+  }
+}
+
+@page :right {
+  margin-left: var(--page-m-edge);
+
+  @bottom-right {
+    content: counter(page);
+    font-family: "Mona Sans", sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-bold);
+    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    margin-bottom: 1cm;
+    vertical-align: top;
+    padding-top: 0.3cm;
+  }
+
+  @bottom-center {
+    text-align: right;
+  }
+}
+
+@page Section {
+  background-color: var(--gray-2);
+  margin-left: 9cm;
+}
+
+@page Subsection:first {
+  margin-top: 1cm
+}
+
+@page :blank {
+  content: "[this page intentionally left blank]";
+  text-align: center;
+  font-family: "Mona Sans", sans-serif;
+  font-size: 8.5pt;
+  line-height: 1.4;
+  font-weight: 300;
+  font-feature-settings: "case" on, "ss01" on, "ss05" on;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Mona Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-feature-settings: "case" on, "ss01" on, "ss05" on;
+  font-size: 8.5pt;
+  line-height: 1.4;
+  font-stretch: 99%;
+
+  widows: 3;
+  orphans: 3;
+}
+
+strong {
+  font-stretch: 100%;
+}
+
+.tabular {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.book-title,
+h1,
+h2,
+h3,
+.headline {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 380;
+  font-style: normal;
+  font-variation-settings: "wdth" 95;
+  font-stretch: 100%;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+  font-stretch: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.section-title {
+  font-size: 30pt;
+  text-wrap: balance;
+}
+
+h2.section-title {
+  height: 2cm;
+  break-before: page;
+  margin-top: -3cm;
+  margin-bottom: 1cm;
+}
+
+h1 {
+  font-size: 30pt;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin-bottom: 2cm;
+
+  string-set: section content(), subsection "";
+  counter-increment: section;
+  counter-reset: subsection;
+}
+
+h1::before {
+  content: counter(section, upper-roman) "\00a0\2013\00a0";
+  position: absolute;
+  right: 100%;
+  display: block;
+  text-wrap: nowrap;
+}
+
+h2 {
+  font-size: 30pt;
+  letter-spacing: 0.01em;
+  line-height: 1;
+
+  string-set: subsection content();
+  counter-increment: section;
+}
+
+h3 {
+  letter-spacing: 0.03em;
+  font-size: 15.5pt;
+  line-height: 1.15;
+}
+
+h4 {
+  letter-spacing: 0.03em;
+  font-size: 11pt;
+  line-height: 1.15;
+}
+
+h5 {
+  font-size: 10.5pt;
+  margin: -3.5pt 0 13pt;
+}
+
+h6 {
+  font-size: 8.5pt;
+  line-height: 1.4;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1lh;
+  hyphens: auto;
+}
+
+ul {
+  list-style-type:  none;
+  list-style-position: outside;
+  padding:0;
+  margin:0;
+  margin-bottom: 1lh;
+  break-inside: avoid;
+}
+
+ul > li {
+  position: relative;
+  padding-left: 4mm;
+}
+
+ul > li::before {
+  content: '￭';
+  position: absolute;
+  left:0;
+}
+
+.lead {
+  margin-bottom: 1.25cm;
+}
+
+.col-2 {
+  columns: 2;
+  column-gap: 0.6cm;
+  column-fill: balance;
+}
+
+:root {
+  --black: #000000;
+  --gray-6: #575757;
+  --gray-5: #7c7c7b;
+  --gray-4: #a8a8a7;
+  --gray-3: #dadada;
+  --gray-2: #e6e7e8;
+  --gray-1: #f1f2f2;
+  --white: #ffffff;
+
+  --blue-dark: #003868;
+  --blue-mid: #004c97;
+  --blue-bright: #0072ce;
+  --blue-light: #adc8e9;
+}
+
+#cover {
+  height: 100vh;
+  padding: 19mm var(--page-mx) 0 var(--cover-page-ml);
+
+  .book-title {
+    font-size: 60pt;
+    margin: 0;
+    position: absolute;
+    bottom: 16.7cm;
+    line-height: 1;
+    left: var(--cover-page-ml);
+    right: var(--page-mx);
+  }
+
+  .logo {
+    position: absolute;
+    top: var(--page-mx);
+    right: var(--page-mx);
+    height: 17mm;
+  }
+
+  #cover-graphics {
+    position: absolute;
+    left: 0;
+    width: 210mm;
+    bottom: 0.5cm;
+  }
+}
+
+.bleed {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin: 0;
+
+  @supports (margin-outside: 0) {
+    width: calc(100vw + var(--page-mx));
+    margin-outside: calc(-1 * var(--page-mx));
+  }
+}
+
+.bleed > img {
+  width: 100%;
+  display: block;
+}
+
+figcaption {
+  margin-top: 1lh;
+  margin-bottom: 1.5cm;
+  font-size: 7.5pt;
+}
+
+.section {
+  break-before: right;
+  page: Section;
+  break-after: page;
+}
+
+.subsection {
+
+}
+
+@page {
+  @footnote {
+    border-top: none;
+    float: bottom;
+  }
+}
+
+@-adapt-footnote-area ::before {
+  display: none;
+  border-block-start-color: transparent;
+  border-block-start-width: 0;
+}
+
+span.footnote {
+  float: footnote;
+  font-size: 6pt;
+}
+
+.footnote::footnote-call {
+  content: counter(footnote, decimal) " ";
+  vertical-align: super;
+  font-weight: var(--font-weight-bold);
+  font-size: 6pt;
+}
+
+.footnote::footnote-marker {
+  content: counter(footnote, decimal);
+  font-weight: var(--font-weight-bold);
+  margin-right: 2mm;
+}
+
+.footnote::before {
+  border: none;
+}
+
+.toc {
+  display: block;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc li {
+  list-style-type: none;
+  font-size: 14pt;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.toc li::before {
+  content: '';
+}
+
+.toc a {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  position: relative;
+  font-weight: var(--font-weight-bold);
+}
+
+.toc a::after {
+  content: leader(" ") target-counter(attr(href), page);
+}

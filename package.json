@@ -1,0 +1,29 @@
+{
+  "name": "pdf-dupe",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.tsx",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "check": "biome check",
+    "fix": "biome check --write",
+    "install-vivlio-cli": "pnpm i -g @vivliostyle/cli",
+    "build-pdf": "vivliostyle build http://localhost:3000 -d -o dist/cs.pdf"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.3",
+    "hono": "^4.7.11",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.15.29",
+    "@types/react": "19.1.4",
+    "@types/react-dom": "19.1.5",
+    "tsx": "^4.19.4",
+    "typescript": "5.8.3"
+  }
+}
