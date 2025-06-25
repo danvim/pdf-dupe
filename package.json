@@ -10,7 +10,10 @@
     "check": "biome check",
     "fix": "biome check --write",
     "install-vivlio-cli": "pnpm i -g @vivliostyle/cli",
-    "build-pdf": "vivliostyle build http://localhost:3000 -d -o dist/cs.pdf"
+    "build-pdf-cs": "vivliostyle build http://localhost:3000/cs -d -o dist/cs.pdf",
+    "build-pdf-uvc": "vivliostyle build http://localhost:3000/uvc -d -o dist/uvc.pdf",
+    "install-viewer": "npm i -g @vivliostyle/viewer",
+    "install-cli": "npm i -g @vivliostyle/cli"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.3",
@@ -19,7 +22,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.5",
     "@types/node": "^22.15.29",
     "@types/react": "19.1.4",
     "@types/react-dom": "19.1.5",

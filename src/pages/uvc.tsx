@@ -1,58 +1,36 @@
 import type { FC } from 'react';
 
-export const CS: FC = () => {
+export const UVC: FC = () => {
   return (
     <html lang="en">
       <head>
-        <title>Caspian Sea Annual Report 2018</title>
+        <title>UVC Annual Report 2024</title>
       </head>
       <body>
-        <link rel="stylesheet" href="cs.css" />
+        <link rel="stylesheet" href="uvc.css" />
         <div id="cover">
-          <img
-            className="logo"
-            src="/images/caspian-sea-logo.svg"
-            alt="Caspian Sea Logo"
-          />
-
-          <header className="book-title">Annual Report 2018</header>
-          <svg viewBox="0 0 210 153" role="presentation" id="cover-graphics">
-            <defs>
-              <clipPath id="steps">
-                <path d="M 0,35 L 25,35 L 25,0 L 210,0 L 210,140 L 141,140 L 141,153 L 0,153 Z" />
-              </clipPath>
-            </defs>
-            <image
-              x="0"
-              y="0"
-              width="210"
-              xlinkHref="http://localhost:3000/images/hong-kong.jpg"
-              clipPath="url(#steps)"
+          <header className="book-header">
+            <div className="book-title">Annual Report 2024</div>
+            <div className="book-subtitle">UVC Group</div>
+          </header>
+          <div id="cover-graphics">
+            <img
+              className="graphic-logo"
+              src="/images/UVC-sq-white.svg"
+              aria-hidden
             />
-          </svg>
-          <h4 className="headline" style={{ breakAfter: 'page' }}>
-            Caspian Sea Group
-            <br />
-            Caspian Sea
-          </h4>
+          </div>
+          <div className="logo-wrapper">
+            <img className="logo" src="/images/UVC.svg" alt="UVCa Logo" />
+          </div>
         </div>
         <div className="subsection">
-          <h2 className="section-title">
-            Message from the Chairman of the Board of Directors
+          <h2 className="section-title" data-section="Letter to shareholders">
+            Dear shareholders,
           </h2>
-          <h3 className="lead">
-            The year 2018 was a pivotal one for Caspian Sea, marking the
-            completion of its restructuring and the achievement of its first
-            annual post-tax profit since 2014. Through strategic risk management
-            and capital efficiency, the bank strengthened its financial position
-            while expanding wealth management and investment banking services.
-            Digital transformation efforts accelerated, improving operational
-            efficiency.
-          </h3>
-          <div className="col-2">
-            <h5>Dear shareholders, clients and colleagues</h5>
+          <div>
             <p>
-              As we reflect on the year 2018, I want to take a moment to express
+              As we reflect on the year 2024, I want to take a moment to express
               my deepest gratitude to each of you—our shareholders, our valued
               clients, and our dedicated colleagues—who have been pivotal in our
               journey toward growth and success. the Bank stands today as a
@@ -71,7 +49,7 @@ export const CS: FC = () => {
               uncertainties with clarity and confidence.
             </p>
             <p>
-              Throughout 2018, our commitment to delivering sustainable
+              Throughout 2024, our commitment to delivering sustainable
               financial solutions has remained unwavering. We have strengthened
               our investment portfolios, enhanced our digital banking
               infrastructure, and deepened our engagement with clients, ensuring
@@ -80,7 +58,7 @@ export const CS: FC = () => {
               innovation, positions Caspian Sea Bank as a leading institution
               ready to embrace the future.
             </p>
-            <h6>Financial Strength and Growth: A Testament to Our Vision</h6>
+            <h5>Financial Strength and Growth: A Testament to Our Vision</h5>
             <p>
               One of the most notable achievements of the year has been our
               financial growth, which reinforces the trust you have placed in
@@ -109,7 +87,7 @@ export const CS: FC = () => {
               responsible banking initiatives, we reaffirm our commitment to
               being a force for good in the financial sector.
             </p>
-            <h6>Building a Future Together</h6>
+            <h5>Building a Future Together</h5>
             <p>
               The heart of the Bank lies in its people—our esteemed clients and
               our exceptional employees. Our journey toward excellence would not
@@ -138,7 +116,7 @@ export const CS: FC = () => {
             </p>
             <p>
               As we step into the future, we are confident that the foundation
-              we have built in 2018 will serve as a catalyst for even greater
+              we have built in 2024 will serve as a catalyst for even greater
               achievements. the Bank will continue to expand, innovate, and
               serve with integrity. We look forward to embarking on the next
               chapter of growth, together.
@@ -150,21 +128,18 @@ export const CS: FC = () => {
               for generations to come. The future is bright, and together, we
               will seize it with determination and vision.
             </p>
-            <figure
-              className="bleed"
-              style={{
-                columnSpan: 'all',
-              }}
-            >
+            <figure>
               <img src="/images/businesswoman.jpg" alt="CEO" />
               <figcaption>
-                Catherine James, Chairman of the Board of Directors.
+                <strong>Catherine James</strong>
+                <br />
+                Chairman of the Board of Directors.
               </figcaption>
             </figure>
             <p>
               As we move into the next year, Caspian Sea Bank is poised for
               continued growth and strategic expansion. Building upon the solid
-              financial foundation established in 2018, we aim to further
+              financial foundation established in 2024, we aim to further
               strengthen our investment banking capabilities, broaden our wealth
               management services, and optimize operational efficiencies through
               advanced digital solutions. The evolving financial landscape
@@ -206,29 +181,17 @@ export const CS: FC = () => {
             </p>
           </div>
         </div>
-        <div className="section">
-          <h1 className="section-title">Information on the company</h1>
-          <ul className="toc">
-            <li>
-              <a href="#information-on-the-company.divisions">Divisions</a>
-            </li>
-            <li>
-              <a href="#information-on-the-company.divisions">Divisions</a>
-            </li>
-            <li>
-              <a href="#information-on-the-company.divisions">Divisions</a>
-            </li>
-          </ul>
-        </div>
         <div className="subsection">
+          <h1 className="section-title">Information on the company</h1>
           <h2
             id="information-on-the-company.divisions"
             className="section-title"
+            data-section="Information on the company | Vivliostyle so far"
           >
             Vivliostyle experience so far
           </h2>
-          <div className="col-2">
-            <h6>What works</h6>
+          <div>
+            <h5>What works</h5>
             <p>
               With custom support for additional CSS from W3C documents, many
               unachievable by today's browser can be implemented. As compared to
@@ -245,7 +208,7 @@ export const CS: FC = () => {
               </li>
               <li>Writing footnotes</li>
             </ul>
-            <h6>Comparing with Weasyprint</h6>
+            <h5>Comparing with Weasyprint</h5>
             <p>
               I have attempted to export this document with Weasyprint, but
               noticed several issues:
@@ -262,7 +225,7 @@ export const CS: FC = () => {
               However, for more general use cases, the Python library more than
               suffices.
             </p>
-            <h6>Issues</h6>
+            <h5>Issues</h5>
             <p>
               Using Vivliostyle for laying out this document has been good so
               far. However, the original design of this document requires the

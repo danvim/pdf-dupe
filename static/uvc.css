@@ -1,0 +1,335 @@
+@import url("./reset.css");
+
+:root {
+  --cover-page-ml: 1.5cm;
+  --page-mx: 1.5cm;
+  --page-m-edge: 1.5cm;
+  --page-t: 1.25cm;
+
+  --font-weight-light: 300;
+  --font-weight-bold: 600;
+}
+
+@page {
+  margin: 1.25cm 1.5cm;
+  size: a4;
+  counter-increment: page;
+
+  @bottom-left {
+    content: "Annual Report 2024 | ";
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-bold);
+    vertical-align: top;
+    border-top: 0.4pt solid var(--black);
+  }
+
+  @bottom-center {
+    content: string(footer-section);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-light);
+    vertical-align: top;
+    border-top: 0.4pt solid var(--black);
+    text-align: left;
+    width: 13.1cm;
+  }
+
+  @bottom-right {
+    content: counter(page);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    line-height: 1.4;
+    font-weight: var(--font-weight-light);
+    vertical-align: top;
+    border-top: 0.4pt solid var(--black);
+  }
+}
+
+@page :first {
+  margin: 0;
+
+  @bottom-right {
+    content: none;
+  }
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1.15;
+}
+
+.tabular {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.book-title,
+h1,
+h2,
+h3,
+.headline {
+  font-weight: var(--font-weight-light);
+  font-style: normal;
+}
+
+h4,
+h5 {
+  font-weight: var(--font-weight-bold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  text-box: trim-both cap alphabetic;
+}
+
+.section-title {
+  text-wrap: balance;
+}
+
+[data-section] {
+  string-set: footer-section attr(data-section);
+}
+
+h1 {
+  font-size: 36pt;
+  line-height: 1.05;
+  margin-bottom: 1.5cm;
+
+  string-set:
+    section content(),
+    subsection "";
+  counter-increment: section;
+  counter-reset: subsection;
+}
+
+h2 {
+  font-size: 22pt;
+  line-height: 1.05;
+  margin-bottom: 28pt;
+
+  string-set: subsection content();
+  counter-increment: section;
+}
+
+h3 {
+  font-size: 15.5pt;
+  line-height: 1.15;
+}
+
+h4 {
+  font-size: 11pt;
+  line-height: 1.15;
+}
+
+h5 {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0 0 10pt;
+  color: var(--brand);
+}
+
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  margin: 0 0 10pt;
+  color: var(--brand);
+}
+
+p {
+  text-box: trim-both cap alphabetic;
+  margin: 0 0 1.4lh;
+  text-align: justify;
+}
+
+p:has(+ ul) {
+  text-box: trim-start cap alphabetic;
+  margin: 0;
+}
+
+li {
+  text-align: justify;
+}
+
+ul {
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1lh;
+  break-inside: avoid;
+}
+
+ul > li {
+  position: relative;
+  padding-left: 4mm;
+}
+
+ul > li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+}
+
+.lead {
+  margin-bottom: 1.25cm;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+
+  --brand: #e60000;
+  --red-web: #bd000c;
+  --bordeux: #a43725;
+
+  --gallery-1: #ecebe4;
+  --gallery-2: #cccabd;
+  --gallery-3: #b9b3a3;
+  --gallery-4: #8f8c83;
+  --gallery-5: #74726f;
+  --gallery-6: #5c5e5d;
+}
+
+#cover {
+  height: 100vh;
+  padding: 19mm var(--page-mx) 0 var(--cover-page-ml);
+
+  .book-title {
+    font-size: 56pt;
+    margin: 0 0 24pt;
+    line-height: 1;
+    width: 350pt;
+  }
+
+  .book-subtitle {
+    font-size: 22pt;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .book-header {
+    padding-left: 20pt;
+    text-box: trim-both cap alphabetic;
+    border-left: 5pt solid var(--brand);
+  }
+
+  .logo {
+    height: 15mm;
+  }
+
+  .logo-wrapper {
+    position: absolute;
+    bottom: 1cm;
+    right: 0;
+    background-color: #fff;
+    padding: 0.5cm 1.5cm 0.5cm 0.5cm;
+  }
+
+  #cover-graphics {
+    position: absolute;
+    left: 1.5cm;
+    right: 0;
+    bottom: 0;
+    top: 10cm;
+    align-content: center;
+    text-align: center;
+    background-color: var(--gallery-3);
+  }
+
+  .graphic-logo {
+    height: 13cm;
+    opacity: 0.2;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  margin-top: 4pt;
+  margin-bottom: 1.5cm;
+  font-size: inherit;
+}
+
+.subsection {
+  break-before: page;
+}
+
+@-adapt-footnote-area {
+  margin-bottom: 1cm;
+}
+
+@-adapt-footnote-area ::before {
+  border-block-start-color: var(--black);
+  border-block-start-width: 0.4pt;
+  margin-right: 0;
+}
+
+span.footnote {
+  float: footnote;
+  font-size: 6pt;
+}
+
+.footnote::footnote-call {
+  content: counter(footnote, decimal) " ";
+  vertical-align: super;
+  font-size: 6pt;
+}
+
+.footnote::footnote-marker {
+  content: counter(footnote, decimal);
+  margin-right: 2pt;
+  color: var(--bordeux);
+}
+
+.footnote::before {
+  border: none;
+}
+
+.toc {
+  display: block;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc li {
+  list-style-type: none;
+  font-size: 14pt;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.toc li::before {
+  content: "";
+}
+
+.toc a {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  position: relative;
+  font-weight: var(--font-weight-bold);
+}
+
+.toc a::after {
+  content: leader(" ") target-counter(attr(href), page);
+}

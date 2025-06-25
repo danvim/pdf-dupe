@@ -1,11 +1,5 @@
+@import "reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap");
-
-* {
-  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
-  color-adjust: exact !important; /* Firefox 48 – 96 */
-  print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
-  box-sizing: border-box;
-}
 
 @font-face {
   font-family: "Mona Sans";
@@ -30,7 +24,7 @@
   --page-mx: 1cm;
   --page-m-edge: 2.1cm;
   --page-t: 4cm;
-  
+
   --font-weight-light: 300;
   --font-weight-bold: 600;
 }
@@ -46,7 +40,10 @@
     font-size: 8.5pt;
     line-height: 1.4;
     font-weight: var(--font-weight-bold);
-    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    font-feature-settings:
+      "case" on,
+      "ss01" on,
+      "ss05" on;
     vertical-align: top;
     padding-top: 0.3cm;
     padding-left: 1cm;
@@ -71,7 +68,10 @@
     font-size: 8.5pt;
     line-height: 1.4;
     font-weight: var(--font-weight-bold);
-    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    font-feature-settings:
+      "case" on,
+      "ss01" on,
+      "ss05" on;
     vertical-align: top;
     padding-top: 0.3cm;
   }
@@ -90,7 +90,10 @@
     font-size: 8.5pt;
     line-height: 1.4;
     font-weight: var(--font-weight-bold);
-    font-feature-settings: "case" on, "ss01" on, "ss05" on;
+    font-feature-settings:
+      "case" on,
+      "ss01" on,
+      "ss05" on;
     margin-bottom: 1cm;
     vertical-align: top;
     padding-top: 0.3cm;
@@ -107,7 +110,7 @@
 }
 
 @page Subsection:first {
-  margin-top: 1cm
+  margin-top: 1cm;
 }
 
 @page :blank {
@@ -117,28 +120,23 @@
   font-size: 8.5pt;
   line-height: 1.4;
   font-weight: 300;
-  font-feature-settings: "case" on, "ss01" on, "ss05" on;
-}
-
-html {
-  margin: 0;
-  padding: 0;
+  font-feature-settings:
+    "case" on,
+    "ss01" on,
+    "ss05" on;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Mona Sans", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  font-feature-settings: "case" on, "ss01" on, "ss05" on;
+  font-feature-settings:
+    "case" on,
+    "ss01" on,
+    "ss05" on;
   font-size: 8.5pt;
   line-height: 1.4;
   font-stretch: 99%;
-
-  widows: 3;
-  orphans: 3;
 }
 
 strong {
@@ -196,7 +194,9 @@ h1 {
   line-height: 1;
   margin-bottom: 2cm;
 
-  string-set: section content(), subsection "";
+  string-set:
+    section content(),
+    subsection "";
   counter-increment: section;
   counter-reset: subsection;
 }
@@ -246,11 +246,15 @@ p {
   hyphens: auto;
 }
 
+p:has(+ ul) {
+  margin: 0;
+}
+
 ul {
-  list-style-type:  none;
+  list-style-type: none;
   list-style-position: outside;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   margin-bottom: 1lh;
   break-inside: avoid;
 }
@@ -261,9 +265,9 @@ ul > li {
 }
 
 ul > li::before {
-  content: '￭';
+  content: "￭";
   position: absolute;
-  left:0;
+  left: 0;
 }
 
 .lead {
@@ -321,26 +325,19 @@ ul > li::before {
   }
 }
 
-.bleed {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
+figure {
   margin: 0;
-
-  @supports (margin-outside: 0) {
-    width: calc(100vw + var(--page-mx));
-    margin-outside: calc(-1 * var(--page-mx));
-  }
 }
 
 .bleed > img {
-  width: 100%;
+  width: calc(100% + var(--page-mx));
+  float: inside;
   display: block;
 }
 
 figcaption {
-  margin-top: 1lh;
+  clear: both;
+  padding-top: 1lh;
   margin-bottom: 1.5cm;
   font-size: 7.5pt;
 }
@@ -351,19 +348,7 @@ figcaption {
   break-after: page;
 }
 
-.subsection {
-
-}
-
-@page {
-  @footnote {
-    border-top: none;
-    float: bottom;
-  }
-}
-
 @-adapt-footnote-area ::before {
-  display: none;
   border-block-start-color: transparent;
   border-block-start-width: 0;
 }
@@ -404,7 +389,7 @@ span.footnote {
 }
 
 .toc li::before {
-  content: '';
+  content: "";
 }
 
 .toc a {
